@@ -12,4 +12,8 @@ import { listen } from "@colyseus/tools";
 import appConfig from "./app.config";
 
 // Create and listen on 2567 (or PORT environment variable.)
-listen(appConfig);
+const port = process.env.NODE_ENV == 'production' 
+  ? (+process.env.PORT || 80)
+  : 2567;
+
+listen(appConfig, port);
