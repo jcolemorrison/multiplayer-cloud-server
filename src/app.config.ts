@@ -33,7 +33,11 @@ export default config({
          * Bind your custom express routes here:
          */
         app.get("/", (req, res) => {
-            res.send("It's time to kick ass and chew bubblegum!");
+            res.send("root express path");
+        });
+
+        app.get("/health", (req, res) => {
+            res.status(200).send("healthy");
         });
 
         // these latency methods are for development purpose only.

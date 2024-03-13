@@ -3,12 +3,13 @@
   "name": "multiplayer-game-server",
   "version": "1.0.0",
   "description": "Multiplayer game server written in Colyseus",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "tsx watch src/index.ts",
     "loadtest": "colyseus-loadtest loadtest/example.ts --room my_room --numClients 2",
-    "build": "npm run clean && tsc",
-    "clean": "node node_modules/rimraf/bin lib",
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "clean": "rimraf dist",
     "test": "mocha -r tsx test/**_test.ts --exit --timeout 15000"
   },
   "author": "Cole Morrison",
@@ -21,7 +22,7 @@
     "@types/mocha": "^8.2.3",
     "copyfiles": "^2.4.1",
     "mocha": "^9.0.2",
-    "rimraf": "^2.7.1",
+    "rimraf": "^5.0.5",
     "tsx": "^3.12.7",
     "typescript": "^4.6.3"
   },
